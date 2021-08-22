@@ -1,0 +1,24 @@
+{% extends 'app1/base.html' %}
+
+
+{% block content %}
+	<form action="" method="POST">
+		<h1>Login</h1>
+		{% csrf_token %}
+		<div class="login-input">
+			<div class="username">
+				<label>Username</label>
+				<input type="text" name="username" required />
+			</div>
+			<div class="password">
+				<label>Password</label>
+				<input type="password" name="password" required />
+			</div>
+		</div>
+		<button type="submit" class="button">Login</button>
+	</form>
+	{% for mes in messages %}
+		<p class="message">{{mes}}</p>
+	{% endfor %}
+	<p>Register? Click <a href="{% url 'register' %}">here</a></p>
+{% endblock %}
